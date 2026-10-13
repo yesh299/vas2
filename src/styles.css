@@ -263,8 +263,18 @@ h1 {
 }
 
 .enter-link__arrow {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
   font-size: 0.75rem;
-  pointer-events: none;
+  line-height: 1;
+  padding: 0;
+}
+
+.enter-link__arrow:disabled {
+  cursor: default;
+  opacity: 0.35;
 }
 
 .enter-link input {

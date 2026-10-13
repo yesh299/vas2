@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import './styles.css'
 
 const vertexShader = `
@@ -106,6 +106,8 @@ function LayerStack() {
 }
 
 function App() {
+  const [vasKey, setVasKey] = useState('')
+
   return (
     <main>
       <header className="site-header">
@@ -151,8 +153,17 @@ function App() {
                 aria-label="Enter your Vas key"
                 placeholder="Enter your vas - key"
                 autoComplete="off"
+                value={vasKey}
+                onChange={(event) => setVasKey(event.target.value)}
               />
-              <span className="enter-link__arrow">→</span>
+              <button
+                className="enter-link__arrow"
+                type="submit"
+                aria-label="Submit Vas key"
+                disabled={!vasKey.trim()}
+              >
+                →
+              </button>
             </form>
           </div>
         </div>

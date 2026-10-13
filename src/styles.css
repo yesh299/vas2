@@ -49,6 +49,15 @@ button {
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  .hero {
+    background-size: cover;
+  }
+
   .first-section__image {
     max-height: 80svh;
     width: min(78vw, 42rem);
@@ -376,7 +385,7 @@ h2 {
 
 .site-footer {
   align-items: flex-end;
-  background: #17100b url('/assets/Gemini_Generated_Image_fo3mzkfo3mzkfo3m.png') center bottom / cover no-repeat;
+  background: #17100b url('/assets/Gemini_Generated_Image_fo3mzkfo3mzkfo3m.png') center top / 100% auto no-repeat;
   border-top: 1px solid rgba(231, 214, 190, 0.18);
   display: flex;
   gap: 2rem;

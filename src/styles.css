@@ -48,11 +48,12 @@ button {
   position: relative;
 }
 
-.first-section .layer-stack {
-  aspect-ratio: 764 / 950;
+.first-section__image {
   height: auto;
-  transform: scale(1.2);
-  width: min(82vw, 56rem, 67.5svh);
+  max-height: 98svh;
+  object-fit: contain;
+  width: min(98vw, 67rem, 81svh);
+  z-index: 1;
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
@@ -60,8 +61,8 @@ button {
     background-size: 100% 100%;
   }
 
-  .first-section .layer-stack {
-    width: min(78vw, 42rem, 64.3svh);
+  .first-section__image {
+    width: min(93.6vw, 50.4rem, 77.2svh);
   }
 }
 
@@ -420,8 +421,8 @@ h2 {
     background-size: 100% 100%;
   }
 
-  .first-section .layer-stack {
-    width: min(92vw, 30rem, 64.3svh);
+  .first-section__image {
+    width: min(110vw, 36rem, 77.2svh);
   }
 
   .hero__content {

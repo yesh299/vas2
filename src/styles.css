@@ -13,7 +13,7 @@
 }
 
 body {
-  background: #17100b url('/assets/Gemini_Generated_Image_fo3mzkfo3mzkfo3m.png') center top / cover scroll no-repeat;
+  background: #17100b url('/assets/Gemini_Generated_Image_fo3mzkfo3mzkfo3m.png') right center / 100% 100% no-repeat;
   margin: 0;
   min-width: 320px;
 }
@@ -60,10 +60,9 @@ button {
   min-height: 100svh;
   overflow: hidden;
   position: relative;
-  box-shadow: inset 8px 0 #17100b, inset -8px 0 #17100b;
   background:
-    linear-gradient(180deg, rgba(23, 16, 11, 0.18), rgba(23, 16, 11, 0.42)),
-    url('/assets/second-section-background.png') center / cover no-repeat;
+    linear-gradient(180deg, rgba(23, 16, 11, 0.08), rgba(23, 16, 11, 0.42)),
+    url('/assets/second-section-background.png') right center / 101% 100% no-repeat;
 }
 
 .hero--layers {
@@ -256,6 +255,31 @@ h1 {
 
 .enter-link__arrow {
   font-size: 0.75rem;
+  pointer-events: none;
+}
+
+.enter-link input {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  min-width: 0;
+  outline: 0;
+  padding: 0;
+  text-transform: inherit;
+  width: 100%;
+}
+
+.enter-link input::placeholder {
+  color: inherit;
+  opacity: 1;
+}
+
+.enter-link:focus-within {
+  background: rgba(255, 248, 237, 0.1);
+  border-color: rgba(231, 214, 190, 0.8);
+  color: #fff8ed;
 }
 
 .scroll-note {
@@ -352,7 +376,7 @@ h2 {
 
 .site-footer {
   align-items: flex-end;
-  background: transparent;
+  background: #17100b url('/assets/Gemini_Generated_Image_fo3mzkfo3mzkfo3m.png') center bottom / cover no-repeat;
   border-top: 1px solid rgba(231, 214, 190, 0.18);
   display: flex;
   gap: 2rem;
@@ -377,25 +401,6 @@ h2 {
   font-size: 1.05rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.site-footer__nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem 1.5rem;
-  justify-content: center;
-}
-
-.site-footer__nav a {
-  color: rgba(245, 238, 228, 0.7);
-  font-size: 0.62rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  transition: color 180ms ease;
-}
-
-.site-footer__nav a:hover {
-  color: #fff8ed;
 }
 
 .site-footer__meta {
@@ -474,10 +479,6 @@ h2 {
     flex-direction: column;
     gap: 2rem;
     padding: 3rem 1.5rem 1.5rem;
-  }
-
-  .site-footer__nav {
-    justify-content: flex-start;
   }
 
   .site-footer__meta {

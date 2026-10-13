@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import './styles.css'
 
 const vertexShader = `
@@ -106,8 +106,6 @@ function LayerStack() {
 }
 
 function App() {
-  const [isVasKeyEntered, setIsVasKeyEntered] = useState(false)
-
   return (
     <main>
       <header className="site-header">
@@ -144,14 +142,18 @@ function App() {
               <br className="desktop-break" />
               inhabit and the journeys between them.
             </p>
-            <button
+            <form
               className="enter-link"
-              type="button"
-              onClick={() => setIsVasKeyEntered(true)}
+              onSubmit={(event) => event.preventDefault()}
             >
-              <span>Enter your vas - key</span>
+              <input
+                type="text"
+                aria-label="Enter your Vas key"
+                placeholder="Enter your vas - key"
+                autoComplete="off"
+              />
               <span className="enter-link__arrow">→</span>
-            </button>
+            </form>
           </div>
         </div>
       </section>
@@ -161,14 +163,6 @@ function App() {
           <span className="site-footer__wordmark">VAS</span>
           <span className="site-footer__tagline">Carry your space</span>
         </div>
-        {isVasKeyEntered && (
-          <nav className="site-footer__nav" aria-label="Footer navigation">
-            <a href="https://vasapp.vercel.app/#map-section">World</a>
-            <a href="https://vasapp.vercel.app/#about">About us</a>
-            <a href="https://vasapp.vercel.app/#vas-key">Vas key</a>
-            <a href="https://vasapp.vercel.app/#contact">Contact us</a>
-          </nav>
-        )}
         <div className="site-footer__meta">
           <p>VAS is developed with <strong>Mudra Essentials Pvt. Ltd.</strong></p>
           <p>© 2026 VAS. All rights reserved.</p>

@@ -50,6 +50,7 @@ button {
 .first-section .layer-stack {
   aspect-ratio: 764 / 950;
   height: auto;
+  transform: scale(1.2);
   width: min(82vw, 56rem, 67.5svh);
 }
 

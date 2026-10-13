@@ -36,8 +36,7 @@ const fragmentShader = `
 
   void main() {
     vec4 fabric = texture2D(uTexture, vUv);
-    float light = 1.0 + vWave * 1.8;
-    gl_FragColor = vec4(fabric.rgb * light, fabric.a);
+    gl_FragColor = fabric;
   }
 `
 

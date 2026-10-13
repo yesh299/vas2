@@ -16,12 +16,14 @@ const vertexShader = `
   void main() {
     vUv = uv;
     vec3 transformed = position;
-    float waveA = sin(position.x * 3.7 + uTime * uSpeed + uPhase);
-    float waveB = sin(position.y * 5.2 - uTime * uSpeed * 0.72 + uPhase * 1.7);
-    float fold = waveA * 0.11 + waveB * 0.045;
+    // Let one broad wave travel across the whole fabric stack, with a
+    // gentler cross-wave so all four layers move together like cloth.
+    float waveA = sin(position.x * 2.6 - position.y * 1.15 + uTime * uSpeed + uPhase);
+    float waveB = sin(position.x * 4.1 + position.y * 1.8 + uTime * uSpeed * 0.68 + uPhase * 1.7);
+    float fold = waveA * 0.16 + waveB * 0.045;
     transformed.z += fold * uAmplitude;
-    transformed.x += sin(position.y * 2.5 + uTime * uSpeed + uPhase) * 0.1;
-    transformed.y += sin(position.x * 2.0 + uTime * uSpeed * 0.8 + uPhase) * 0.05;
+    transformed.x += sin(position.y * 2.1 + uTime * uSpeed + uPhase) * 0.11;
+    transformed.y += sin(position.x * 1.4 - uTime * uSpeed * 0.8 + uPhase) * 0.07;
     vWave = fold;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(transformed, 1.0);
   }
@@ -44,7 +46,7 @@ function FabricLayer() {
   const material = useRef(null)
   const texture = useLoader(
     TextureLoader,
-    '/assets/WhatsApp%20Image%202026-10-12%20at%2010.59.59%20PM.jpeg',
+    '/assets/first-section-fabric.png',
   )
 
   useFrame(({ clock }) => {
@@ -90,8 +92,8 @@ function LayerStack() {
         orthographic
         camera={{
           position: [0, 0, 8],
-          left: -4.8,
-          right: 4.8,
+          left: -2.6,
+          right: 2.6,
           top: 3.2,
           bottom: -3.2,
           zoom: 1,
@@ -121,11 +123,7 @@ function App() {
       </header>
 
       <section className="first-section" aria-label="Vas opening visual">
-        <img
-          className="first-section__image"
-          src="/assets/first-section-fabric.png"
-          alt="Layered VAS fabrics"
-        />
+        <LayerStack />
       </section>
 
       <section className="hero hero--layers" id="home">

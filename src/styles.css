@@ -13,6 +13,7 @@
 }
 
 body {
+  background: #17100b url('/assets/Gemini_Generated_Image_fo3mzkfo3mzkfo3m.png') center top / cover scroll no-repeat;
   margin: 0;
   min-width: 320px;
 }
@@ -29,10 +30,7 @@ button {
 
 .first-section {
   align-items: center;
-  background:
-    linear-gradient(112deg, rgba(8, 5, 2, 0.18), rgba(39, 25, 13, 0.08)),
-    url('/assets/first%20section.jpeg') center / cover no-repeat,
-    #17100b;
+  background: transparent;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -40,15 +38,21 @@ button {
   min-height: 100svh;
 }
 
-.first-section__video {
+.first-section__image {
   filter: contrast(1.08) saturate(1.18);
   height: auto;
-  max-height: 78vh;
-  mix-blend-mode: screen;
+  max-height: 84svh;
   object-fit: contain;
   position: relative;
-  width: min(74vw, 50rem);
+  width: min(82vw, 56rem);
   z-index: 1;
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .first-section__image {
+    max-height: 80svh;
+    width: min(78vw, 42rem);
+  }
 }
 
 .hero {
@@ -56,11 +60,10 @@ button {
   min-height: 100svh;
   overflow: hidden;
   position: relative;
-  box-shadow: inset 3px 0 #17100b, inset -3px 0 #17100b;
+  box-shadow: inset 8px 0 #17100b, inset -8px 0 #17100b;
   background:
-    linear-gradient(112deg, rgba(8, 5, 2, 0.82), rgba(39, 25, 13, 0.36)),
-    url('/assets/second%20section.png') center / cover no-repeat,
-    #17100b;
+    linear-gradient(180deg, rgba(23, 16, 11, 0.18), rgba(23, 16, 11, 0.42)),
+    url('/assets/second-section-background.png') center / cover no-repeat;
 }
 
 .hero--layers {
@@ -229,8 +232,10 @@ h1 {
 
 .enter-link {
   align-items: center;
+  background: transparent;
   border: 1px solid rgba(231, 214, 190, 0.44);
   color: rgba(229, 214, 195, 0.68);
+  cursor: pointer;
   display: flex;
   font-size: 0.61rem;
   justify-content: space-between;
@@ -277,7 +282,7 @@ h1 {
 
 .space-section {
   align-items: center;
-  background: #777068 url('/assets/space.png') center / cover no-repeat;
+  background: transparent;
   display: flex;
   justify-content: center;
   min-height: 100svh;
@@ -347,7 +352,7 @@ h2 {
 
 .site-footer {
   align-items: flex-end;
-  background: #17100b;
+  background: transparent;
   border-top: 1px solid rgba(231, 214, 190, 0.18);
   display: flex;
   gap: 2rem;
@@ -411,9 +416,9 @@ h2 {
 }
 
 @media (max-width: 600px) {
-  .first-section__video {
-    max-height: 90vh;
-    width: 105vw;
+  .first-section__image {
+    max-height: 80svh;
+    width: min(100vw, 30rem);
   }
 
   .hero__content {

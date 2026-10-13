@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import './styles.css'
 
 const vertexShader = `
@@ -106,6 +106,8 @@ function LayerStack() {
 }
 
 function App() {
+  const [isVasKeyEntered, setIsVasKeyEntered] = useState(false)
+
   return (
     <main>
       <header className="site-header">
@@ -119,17 +121,11 @@ function App() {
       </header>
 
       <section className="first-section" aria-label="Vas opening visual">
-        <video
-          className="first-section__video"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-        >
-          <source src="/assets/vdo.webm" type="video/webm" />
-        </video>
+        <img
+          className="first-section__image"
+          src="/assets/first-section-fabric.png"
+          alt="Layered VAS fabrics"
+        />
       </section>
 
       <section className="hero hero--layers" id="home">
@@ -148,10 +144,14 @@ function App() {
               <br className="desktop-break" />
               inhabit and the journeys between them.
             </p>
-            <a className="enter-link" href="#discover">
+            <button
+              className="enter-link"
+              type="button"
+              onClick={() => setIsVasKeyEntered(true)}
+            >
               <span>Enter your vas - key</span>
               <span className="enter-link__arrow">→</span>
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -161,12 +161,14 @@ function App() {
           <span className="site-footer__wordmark">VAS</span>
           <span className="site-footer__tagline">Carry your space</span>
         </div>
-        <nav className="site-footer__nav" aria-label="Footer navigation">
-          <a href="https://vasapp.vercel.app/#map-section">World</a>
-          <a href="https://vasapp.vercel.app/#about">About us</a>
-          <a href="https://vasapp.vercel.app/#vas-key">Vas key</a>
-          <a href="https://vasapp.vercel.app/#contact">Contact us</a>
-        </nav>
+        {isVasKeyEntered && (
+          <nav className="site-footer__nav" aria-label="Footer navigation">
+            <a href="https://vasapp.vercel.app/#map-section">World</a>
+            <a href="https://vasapp.vercel.app/#about">About us</a>
+            <a href="https://vasapp.vercel.app/#vas-key">Vas key</a>
+            <a href="https://vasapp.vercel.app/#contact">Contact us</a>
+          </nav>
+        )}
         <div className="site-footer__meta">
           <p>VAS is developed with <strong>Mudra Essentials Pvt. Ltd.</strong></p>
           <p>© 2026 VAS. All rights reserved.</p>

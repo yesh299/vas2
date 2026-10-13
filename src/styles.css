@@ -13,9 +13,19 @@
 }
 
 body {
-  background: #17100b url('/assets/Gemini_Generated_Image_fo3mzkfo3mzkfo3m.png') right center / 100% 100% no-repeat;
+  background: #17100b;
   margin: 0;
   min-width: 320px;
+}
+
+main {
+  background-color: #17100b;
+  background-image: url('/assets/Gemini_Generated_Image_fo3mzkfo3mzkfo3m.png');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  isolation: isolate;
+  position: relative;
 }
 
 a {
@@ -33,9 +43,9 @@ button {
   background: transparent;
   display: flex;
   justify-content: center;
+  min-height: 100svh;
   overflow: hidden;
   position: relative;
-  min-height: 100svh;
 }
 
 .first-section__image {
@@ -49,13 +59,8 @@ button {
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
-  body {
-    background-attachment: fixed;
-    background-size: cover;
-  }
-
-  .hero {
-    background-size: cover;
+  main {
+    background-size: 100% 100%;
   }
 
   .first-section__image {
@@ -69,9 +74,7 @@ button {
   min-height: 100svh;
   overflow: hidden;
   position: relative;
-  background:
-    linear-gradient(180deg, rgba(23, 16, 11, 0.08), rgba(23, 16, 11, 0.42)),
-    url('/assets/second-section-background.png') right center / 101% 100% no-repeat;
+  background: linear-gradient(180deg, transparent, rgba(23, 16, 11, 0.12));
 }
 
 .hero--layers {
@@ -395,7 +398,7 @@ h2 {
 
 .site-footer {
   align-items: flex-end;
-  background: #17100b url('/assets/Gemini_Generated_Image_fo3mzkfo3mzkfo3m.png') center top / 100% auto no-repeat;
+  background: linear-gradient(180deg, rgba(23, 16, 11, 0.12), rgba(23, 16, 11, 0.48));
   border-top: 1px solid rgba(231, 214, 190, 0.18);
   display: flex;
   gap: 2rem;
@@ -440,9 +443,13 @@ h2 {
 }
 
 @media (max-width: 600px) {
+  main {
+    background-size: 100% 100%;
+  }
+
   .first-section__image {
     max-height: 80svh;
-    width: min(100vw, 30rem);
+    width: min(92vw, 30rem);
   }
 
   .hero__content {
@@ -476,6 +483,7 @@ h2 {
   .hero__content > .copy p {
     font-size: 0.78rem;
     max-width: 20rem;
+    padding: 0 0.5rem;
   }
 
   .hero__content > .copy .enter-link {
